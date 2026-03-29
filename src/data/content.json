@@ -1,0 +1,285 @@
+{
+  "theme": "creative",
+  "typography": "Playfair Display",
+  "profile": {
+    "name": "Leandri Karolina Ramirez Rivera",
+    "role": "Licenciada en Administración de Empresas Turísticas",
+    "bio": "Graduada de la Universidad Central del Este (UCE) en San Pedro de Macorís. Apasionada por crear experiencias turísticas memorables, gestionar destinos con visión estratégica y conectar viajeros con la riqueza cultural y natural del Caribe.",
+    "image": "/bg-photo.jpg",
+    "email": "leandri.ramirez@gmail.com",
+    "whatsapp": "+18095550000",
+    "location": "San Pedro de Macorís, República Dominicana",
+    "socials": {
+      "twitter": "https://twitter.com/leandri",
+      "github": "",
+      "linkedin": "https://linkedin.com/in/leandri-ramirez",
+      "instagram": "https://instagram.com/leandri.ramirez"
+    }
+  },
+  "sections": {
+    "hero": true,
+    "about": true,
+    "services": true,
+    "portfolio": true,
+    "testimonials": true,
+    "process": true,
+    "cta": true,
+    "contact": true
+  },
+  "services": [
+    {
+      "id": "1",
+      "title": "Gestión de Destinos",
+      "description": "Planificación estratégica y administración de destinos turísticos para maximizar la experiencia del visitante y el impacto económico local.",
+      "fullDescription": "Desarrollo planes maestros de destinos turísticos que integran la experiencia del visitante con el crecimiento económico sostenible. Incluye análisis de mercado, segmentación de turistas, diseño de rutas experienciales, gestión de recursos naturales y culturales, y coordinación con actores locales. He trabajado con comunidades del Cibao y la Región Este para desarrollar modelos de turismo participativo.",
+      "includes": [
+        "Análisis de demanda turística",
+        "Diseño de rutas y circuitos",
+        "Coordinación interinstitucional",
+        "Plan de marketing del destino",
+        "Capacitación a operadores locales"
+      ],
+      "icon": "MapPin"
+    },
+    {
+      "id": "2",
+      "title": "Planificación de Eventos",
+      "description": "Coordinación de eventos corporativos, congresos turísticos y celebraciones que dejan una huella imborrable en cada asistente.",
+      "fullDescription": "Gestión integral de eventos desde la conceptualización hasta el cierre. Manejo proveedores, logística, experiencia del asistente, protocolos institucionales y comunicación. Especialidad en congresos turísticos, festivales culturales y eventos corporativos en el sector hotelero.",
+      "includes": [
+        "Conceptualización y tema del evento",
+        "Gestión de proveedores y presupuesto",
+        "Logística y coordinación en sitio",
+        "Comunicación y prensa",
+        "Informe post-evento con métricas"
+      ],
+      "icon": "CalendarDays"
+    },
+    {
+      "id": "3",
+      "title": "Consultoría Hotelera",
+      "description": "Asesoría integral para establecimientos hoteleros: calidad de servicio, gestión operativa y optimización de la experiencia del huésped.",
+      "fullDescription": "Diagnóstico y mejora de operaciones hoteleras con foco en la experiencia del huésped. Desde auditorías de calidad hasta diseño de protocolos de atención, entreno equipos y establezco sistemas de medición que impactan directamente la satisfacción y las reseñas online.",
+      "includes": [
+        "Auditoría de operaciones",
+        "Protocolo de atención al huésped",
+        "Formación de equipo de recepción",
+        "Optimización de reseñas y reputación",
+        "Plan de mejora continua"
+      ],
+      "icon": "Hotel"
+    },
+    {
+      "id": "4",
+      "title": "Marketing Turístico",
+      "description": "Estrategias de promoción digital y tradicional para posicionar marcas turísticas y atraer viajeros de todo el mundo.",
+      "fullDescription": "Diseño estrategias de marketing que combinan contenido digital, SEO, redes sociales, y relaciones con medios para incrementar la visibilidad de destinos y negocios turísticos. Mi enfoque se basa en datos y resultados medibles.",
+      "includes": [
+        "Estrategia de contenido digital",
+        "Gestión de redes sociales turísticas",
+        "SEO para destinos y hoteles",
+        "Campañas de email y promotores",
+        "Métricas y reportes mensuales"
+      ],
+      "icon": "Globe"
+    },
+    {
+      "id": "5",
+      "title": "Turismo Sostenible",
+      "description": "Desarrollo de modelos turísticos responsables que protegen el medioambiente y potencian las comunidades locales.",
+      "fullDescription": "Diseño modelos de turismo que cumplen con estándares internacionales de sostenibilidad (GSTC). Trabajo con comunidades, empresas y gobiernos locales para implementar prácticas responsables que beneficien tanto al visitante como al territorio.",
+      "includes": [
+        "Diagnóstico de impacto ambiental",
+        "Diseño de turismo comunitario",
+        "Certificación de sostenibilidad",
+        "Educación ambiental para operadores",
+        "Propuestas de financiación verde"
+      ],
+      "icon": "Leaf"
+    },
+    {
+      "id": "6",
+      "title": "Diseño de Paquetes",
+      "description": "Creación de itinerarios y paquetes turísticos a medida para agencias y operadoras, adaptados a cada perfil de viajero.",
+      "fullDescription": "Construyo paquetes turísticos personalizados que maximizan la experiencia del viajero y la rentabilidad del operador. Desde escapadas de aventura hasta turismo de lujo cultural — cada paquete narra una historia y crea un vínculo emocional con el destino.",
+      "includes": [
+        "Investigación de perfil del viajero",
+        "Diseño de itinerario día a día",
+        "Negociación con proveedores",
+        "Material informativo del paquete",
+        "Soporte durante la operación"
+      ],
+      "icon": "Package"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Ruta del Cacao Dominicano",
+      "category": "Turismo Rural",
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
+      "description": "Diseño de una ruta ecoturística por las plantaciones de cacao en el Cibao, integrando gastronomía, cultura y naturaleza.",
+      "fullDescription": "Proyecto de diseño y piloto de una ruta ecoturística de 3 días por las zonas cacaoteras del Cibao dominicano. La ruta incluye visitas guiadas a fincas productoras, talleres de chocolate artesanal, alojamiento en casas rurales certificadas y degustaciones gastronómicas locales. El proyecto fue desarrollado en coordinación con el Ministerio de Turismo y 12 familias productoras de la región.",
+      "results": [
+        "312 turistas en el piloto (+3 meses)",
+        "12 familias beneficiadas directamente",
+        "Cobertura en 4 medios nacionales",
+        "Modelo replicado en otras 2 regiones"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070",
+        "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?q=80&w=2070",
+        "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?q=80&w=2070"
+      ],
+      "link": "/proyectos/1"
+    },
+    {
+      "id": "2",
+      "title": "Festival del Mar – SPM",
+      "category": "Gestión de Eventos",
+      "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop",
+      "description": "Coordinación del festival anual en la costa de San Pedro de Macorís: logística, proveedores y experiencia del visitante.",
+      "fullDescription": "Coordiné la edición 2024 del Festival del Mar en San Pedro de Macorís, un evento de 4 días que reunió a más de 8,000 visitantes. Gestioné más de 40 proveedores, 15 actos artísticos, 30 puestos gastronómicos y la seguridad de 3 escenarios simultáneos. Implementamos un sistema de pulseras NFC para pagos sin efectivo, mejorando la experiencia del asistente en un 40%.",
+      "results": [
+        "8,200 visitantes (+15% vs edición anterior)",
+        "40 proveedores coordinados",
+        "Sistema NFC adoptado 100%",
+        "Calificación 4.8/5 en encuesta"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070",
+        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070",
+        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070"
+      ],
+      "link": "/proyectos/2"
+    },
+    {
+      "id": "3",
+      "title": "Plan de Marketing – Azul Hotel Boutique",
+      "category": "Marketing Turístico",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop",
+      "description": "Estrategia digital de 90 días que incrementó las reservas directas en un 35% para un hotel boutique en Bávaro.",
+      "fullDescription": "Desarrollé e implementé un plan de marketing digital de 90 días para el Azul Hotel Boutique en Bávaro, con el objetivo de reducir la dependencia de OTAs y aumentar las reservas directas. La estrategia incluyó rediseño de la estrategia SEO, campaña de contenido en Instagram y TikTok, email marketing segmentado y una propuesta de valor renovada para viajeros de lujo.",
+      "results": [
+        "+35% reservas directas en 90 días",
+        "-22% comisión pagada a OTAs",
+        "+4,200 seguidores en Instagram",
+        "Ingreso neto adicional: $18,000 USD"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080",
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe2fa?q=80&w=2070",
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070"
+      ],
+      "link": "/proyectos/3"
+    },
+    {
+      "id": "4",
+      "title": "Circuito Ecoturístico Caribe",
+      "category": "Turismo Sostenible",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop",
+      "description": "Propuesta de circuito regional que conecta comunidades locales de RD, Cuba y Jamaica bajo estándares de sostenibilidad.",
+      "fullDescription": "Diseñé la propuesta técnica para un circuito ecoturístico que conecta destinos naturales de República Dominicana, Cuba y Jamaica, con enfoque en comunidades rurales y turismo de bajo impacto. Presentado al Fondo CARICOM para Turismo Sostenible y seleccionado entre los 10 finalistas regionales en 2023.",
+      "results": [
+        "Top 10 CARICOM 2023",
+        "3 países involucrados",
+        "+20 comunidades articuladas",
+        "Propuesta publicada en revista UNWTO"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070",
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2073",
+        "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?q=80&w=2067"
+      ],
+      "link": "/proyectos/4"
+    },
+    {
+      "id": "5",
+      "title": "Estrategia Ecoturismo – Los Haitises",
+      "category": "Turismo Sostenible",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop",
+      "description": "Plan de desarrollo ecoturístico para el Parque Nacional Los Haitises con comunidades bateyes adyacentes.",
+      "fullDescription": "Desarrollé un plan integral de ecoturismo para la zona de amortiguamiento del Parque Nacional Los Haitises, articulando 7 comunidades locales, operadores turísticos regionales y la Administración del parque. El plan establece rutas de kayak, senderismo y avistamiento de aves con guías comunitarios certificados.",
+      "results": [
+        "7 comunidades capacitadas",
+        "32 guías locales certificados",
+        "Ruta piloto operativa (6 meses)",
+        "+180 visitantes primer semestre"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070",
+        "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=2068",
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071"
+      ],
+      "link": "/proyectos/5"
+    },
+    {
+      "id": "6",
+      "title": "Campaña 'Descubre SPM'",
+      "category": "Marketing Turístico",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop",
+      "description": "Campaña digital de promoción del turismo local en San Pedro de Macorís con impacto nacional e internacional.",
+      "fullDescription": "Diseñé y coordiné la campaña 'Descubre SPM' en alianza con la Alcaldía Municipal y operadores hoteleros locales. La campaña combinó contenido audiovisual en redes sociales, colaboraciones con influencers de viajes de España y EE.UU., y una feria de turismo local con participación de 25 negocios. Resultado directo: incremento del 28% en búsquedas de 'turismo San Pedro de Macorís' en Google.",
+      "results": [
+        "+28% búsquedas en Google (3 meses)",
+        "2.3M impresiones en redes",
+        "5 medios internacionales cubiertos",
+        "25 negocios participantes"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073",
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070",
+        "https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=2070"
+      ],
+      "link": "/proyectos/6"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Dra. Carmen Núñez",
+      "role": "Directora Académica – UCE San Pedro de Macorís",
+      "content": "Leandri demostró una capacidad excepcional para analizar y proponer soluciones innovadoras en turismo sostenible. Una profesional brillante con un futuro extraordinario.",
+      "avatar": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "2",
+      "name": "Rafael Méndez",
+      "role": "Gerente General – Azul Hotel Boutique, Bávaro",
+      "content": "Su plan de marketing transformó por completo nuestra presencia digital. Las reservas directas subieron un 35% en solo tres meses. La mejor inversión que hemos hecho.",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "3",
+      "name": "Ana Torres",
+      "role": "Coordinadora de Proyectos – Ministerio de Turismo RD",
+      "content": "Su proyecto de ruta ecoturística es un modelo a seguir. Combina rigor académico con una visión práctica y apasionada del territorio dominicano. Trabajar con ella fue un placer.",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "4",
+      "name": "Ing. José Paulino",
+      "role": "Presidente – Asociación de Hoteles SPM",
+      "content": "La campaña 'Descubre SPM' superó todas nuestras expectativas. Leandri tiene un talento especial para conectar el corazón de un destino con los viajeros del mundo.",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "5",
+      "name": "Mariela Castillo",
+      "role": "Directora – Operadora Caribe Auténtico",
+      "content": "Los paquetes que diseñó para nuestra operadora son exactamente lo que nuestros clientes buscaban: auténticos, bien pensados y con un nivel de detalle impresionante.",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "6",
+      "name": "Pedro Alvarado",
+      "role": "CEO – Grupo Turístico Caribeño",
+      "content": "Contratamos a Leandri para reestructurar nuestra operación hotelera y los resultados hablan solos: mejor satisfacción del huésped, calificaciones más altas y un equipo más capacitado.",
+      "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop"
+    }
+  ],
+  "appearance": {
+    "borderRadius": "medium",
+    "primaryColor": "hsl(var(--primary))"
+  }
+}
