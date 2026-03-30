@@ -36,8 +36,12 @@ export function Process() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative"
         >
-          {/* Subtle background glow for the section */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial-gradient from-primary/5 via-transparent to-transparent -z-10 blur-3xl" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 blur-3xl opacity-50" 
+            style={{ 
+              background: 'radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 70%)' 
+            }} 
+          />
 
           {steps.map((step, index) => {
             const Icon = step.icon;

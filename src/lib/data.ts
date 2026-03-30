@@ -1,39 +1,11 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { SiteData } from './types';
+import defaultData from '../data/content.json';
 
 const DATA_PATH = path.join(process.cwd(), 'src/data/content.json');
 
-const DEFAULT_SITE_DATA: SiteData = {
-  profile: {
-    name: "Karolina",
-    role: "Administradora de Empresas Turísticas",
-    bio: "Especialista en gestión de destinos y experiencias de viaje.",
-    image: "/bg-photo.jpg",
-    email: "correo@ejemplo.com",
-    location: "San Pedro de Macorís, RD",
-    socials: {}
-  },
-  theme: 'tropical',
-  typography: 'Open Sans' as any, // Defaulting to something safe if not exact match
-  appearance: {
-    borderRadius: 'large',
-    primaryColor: '#0ea5e9'
-  },
-  sections: {
-    hero: true,
-    about: true,
-    services: true,
-    portfolio: true,
-    process: true,
-    testimonials: true,
-    cta: true,
-    contact: true
-  },
-  services: [],
-  projects: [],
-  testimonials: []
-};
+const DEFAULT_SITE_DATA: SiteData = defaultData as SiteData;
 
 export async function getSiteData(): Promise<SiteData> {
   try {
