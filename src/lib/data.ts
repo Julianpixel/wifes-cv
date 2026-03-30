@@ -5,16 +5,55 @@ import defaultData from '../data/content.json';
 
 const DATA_PATH = path.join(process.cwd(), 'src/data/content.json');
 
-const DEFAULT_SITE_DATA: SiteData = defaultData as SiteData;
+// THE ABSOLUTE FALLBACK
+const FINAL_SAFETY_NET: SiteData = {
+  theme: 'tropical',
+  typography: 'Inter',
+  profile: {
+    name: "Karolina Ramirez",
+    role: "Administradora Turística",
+    bio: "Especialista en gestión de destinos.",
+    image: "/bg-photo.jpg",
+    email: "correo@ejemplo.com",
+    location: "San Pedro de Macorís, RD",
+    socials: {}
+  },
+  sections: {
+    hero: true,
+    about: true,
+    services: true,
+    portfolio: true,
+    testimonials: true,
+    process: true,
+    cta: true,
+    contact: true
+  },
+  services: [],
+  projects: [],
+  testimonials: [],
+  appearance: {
+    borderRadius: 'medium',
+    primaryColor: '#0ea5e9'
+  }
+};
 
 export async function getSiteData(): Promise<SiteData> {
+  // Priority 1: The static import (most reliable on Vercel)
+  if (defaultData && defaultData.sections) {
+    return defaultData as unknown as SiteData;
+  }
+
+  // Priority 2: The FS read (only for local dev/sync)
   try {
     const fileContents = await fs.readFile(DATA_PATH, 'utf8');
-    return JSON.parse(fileContents);
+    const parsed = JSON.parse(fileContents);
+    if (parsed && parsed.profile) return parsed;
   } catch (error) {
-    console.error('CRITICAL: Using fallback data due to error reading content.json:', error);
-    return DEFAULT_SITE_DATA;
+    console.warn('FS read failed in getSiteData, ignoring.');
   }
+
+  // Priority 3: The hardcoded safety net
+  return FINAL_SAFETY_NET;
 }
 
 export async function saveSiteData(data: SiteData): Promise<void> {
