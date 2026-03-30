@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, GraduationCap, Plane } from 'lucide-react';
 import { staggerContainer, fadeInUp, scaleIn } from '@/lib/animations';
@@ -41,9 +40,13 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   );
 }
 
+const FALLBACK_IMG = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop';
+
 export function Hero({ name, title, description, image }: HeroProps) {
   const firstName = (name || '').split(' ')[0] || 'Leandri';
-  const finalImage = image && image !== '' ? image : 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop';
+  const [imgSrc, setImgSrc] = React.useState(
+    image && image.trim() !== '' ? image : FALLBACK_IMG
+  );
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -75,15 +78,14 @@ export function Hero({ name, title, description, image }: HeroProps) {
 
       {/* ── MOBILE: full-bg photo (editorial style) — hidden on lg ── */}
       <div className="absolute inset-0 lg:hidden overflow-hidden">
-        <Image
-          src={finalImage}
-          alt={name}
-          fill
-          priority
-          className="object-cover object-top"
-          unoptimized={finalImage.startsWith('/')}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imgSrc}
+          alt={name || 'Leandri Karolina'}
+          className="w-full h-full object-cover object-top"
+          onError={() => setImgSrc(FALLBACK_IMG)}
         />
-        {/* Refined overlay for mobile: subtler in light mode, deeper in dark mode */}
+        {/* Refined overlay for mobile */}
         <div
           className="absolute inset-0 z-[1]"
           style={{
@@ -214,13 +216,12 @@ export function Hero({ name, title, description, image }: HeroProps) {
                   className="relative rounded-[2.5rem] overflow-hidden border border-primary/20 shadow-2xl z-10 aspect-[3/4]"
                   style={{ boxShadow: 'var(--theme-shadow)' }}
                 >
-                  <Image 
-                    src={finalImage} 
-                    alt={name} 
-                    fill
-                    priority
-                    className="object-cover object-top hover:scale-105 transition-transform duration-700" 
-                    unoptimized={finalImage.startsWith('/')}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={imgSrc}
+                    alt={name || 'Leandri Karolina'}
+                    className="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                    onError={() => setImgSrc(FALLBACK_IMG)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
                 </div>
