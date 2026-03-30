@@ -80,13 +80,15 @@ export function Hero({ name, title, description, image }: HeroProps) {
             alt={name}
             className="w-full h-full object-cover object-top"
           />
-          {/* Dark gradient overlay for readability */}
+          {/* Refined overlay for mobile: subtler in light mode, deeper in dark mode */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 z-[1]"
             style={{
-              background: 'linear-gradient(to right, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.85) 60%, hsl(var(--background) / 0.5) 100%)',
+              background: 'linear-gradient(to right, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.6) 50%, transparent 100%)',
             }}
           />
+          {/* Subtle vignette/bottom fade */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-[1]" />
         </div>
       )}
 

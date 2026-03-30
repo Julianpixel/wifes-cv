@@ -16,99 +16,65 @@ import { cn } from '@/lib/utils';
 
 const themes: { id: Theme; name: string; colors: string[] }[] = [
   { id: 'tropical', name: 'Tropical Caribe', colors: ['#04080b', '#26e2c3', '#f59e0b'] },
-  { id: 'dark-minimal', name: 'Oscuro Minimalista', colors: ['#09090b', '#fafafa', '#27272a'] },
-  { id: 'light-elegant', name: 'Claro Elegante', colors: ['#ffffff', '#09090b', '#7c2d12'] },
-  { id: 'creative', name: 'Vibrante Creativo', colors: ['#0f0720', '#7c3aed', '#c026d3'] },
-  { id: 'corporate', name: 'Corporativo', colors: ['#f8fafc', '#2563eb', '#1e40af'] },
+  { id: 'corporate', name: 'Brisa Mediterránea', colors: ['#003366', '#0056b3', '#ffffff'] },
+  { id: 'creative', name: 'Tierra Safari', colors: ['#1a3a14', '#2d5a27', '#bc6c25'] },
+  { id: 'dark-minimal', name: 'Lujo Alpino', colors: ['#1e293b', '#475569', '#d4af37'] },
+  { id: 'light-elegant', name: 'Alma Volcánica', colors: ['#171717', '#ef4444', '#404040'] },
 ];
 
-const fonts: Typography[] = ['Plus Jakarta Sans', 'Outfit', 'Instrument Serif', 'Inter'];
-
 export default function AppearancePage({ initialData }: { initialData: SiteData }) {
-  const { theme, setTheme, typography, setTypography } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isSaving, setIsSaving] = React.useState(false);
 
-  const updateAppearance = async (newTheme?: Theme, newTypography?: Typography) => {
+  const updateAppearance = async (newTheme?: Theme) => {
     const t = newTheme || theme;
-    const ty = newTypography || typography;
     
     // Update local context
     if (newTheme) setTheme(newTheme);
-    if (newTypography) setTypography(newTypography);
     
     setIsSaving(true);
-    await updateSiteAction({ theme: t, typography: ty });
+    await updateSiteAction({ theme: t });
     setIsSaving(false);
   };
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Personalización Visual</h1>
-        <p className="text-muted-foreground mt-2">Personaliza los colores y la tipografía de tu portafolio.</p>
+        <h1 className="text-3xl font-black tracking-tight uppercase">Identidad Visual</h1>
+        <p className="text-muted-foreground mt-2">Selecciona la atmósfera que mejor represente tu marca turística.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="border-none shadow-sm">
+      <div className="grid grid-cols-1 gap-8">
+        <Card className="border-none shadow-xl bg-background/50 backdrop-blur-md rounded-3xl">
           <CardHeader>
-            <CardTitle>Temas</CardTitle>
-            <CardDescription>Selecciona una paleta de colores predefinida.</CardDescription>
+            <CardTitle className="text-2xl font-black">Paletas de Destinos</CardTitle>
+            <CardDescription>Colores vivos y llamativos inspirados en el sector turístico global.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {themes.map((t) => (
                 <button
                   key={t.id}
-                  onClick={() => updateAppearance(t.id, undefined)}
+                  onClick={() => updateAppearance(t.id)}
                   className={cn(
-                    "relative flex flex-col items-start gap-2 p-4 rounded-xl border-2 text-left transition-all hover:border-primary/50",
-                    theme === t.id ? "border-primary" : "border-transparent bg-muted/50"
+                    "relative flex flex-col items-start gap-4 p-6 rounded-[2rem] border-2 text-left transition-all hover:scale-[1.03] active:scale-95",
+                    theme === t.id ? "border-primary bg-primary/5" : "border-transparent bg-muted/40"
                   )}
                 >
-                  <div className="flex gap-1">
+                  <div className="flex gap-2">
                     {t.colors.map((c, i) => (
-                      <div key={i} className="w-4 h-4 rounded-full border border-border" style={{ backgroundColor: c }} />
+                      <div key={i} className="w-8 h-8 rounded-full border border-white/10 shadow-sm" style={{ backgroundColor: c }} />
                     ))}
                   </div>
-                  <span className="text-sm font-bold">{t.name}</span>
+                  <div className="space-y-1">
+                    <span className="text-lg font-black tracking-tighter block">{t.name}</span>
+                    <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Atmósfera {t.id}</span>
+                  </div>
                   {theme === t.id && (
-                    <div className="absolute top-2 right-2 bg-primary rounded-full p-0.5">
-                      <Check className="w-3 h-3 text-primary-foreground" />
+                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground rounded-full p-1 shadow-lg ring-4 ring-primary/20">
+                      <Check className="w-4 h-4" />
                     </div>
                   )}
-                </button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-none shadow-sm">
-          <CardHeader>
-            <CardTitle>Tipografía</CardTitle>
-            <CardDescription>Cambia la fuente global del sitio.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-4">
-              {fonts.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => updateAppearance(undefined, f)}
-                  className={cn(
-                    "flex items-center justify-between w-full p-4 rounded-xl border-2 transition-all hover:bg-muted/50",
-                    typography === f ? "border-primary" : "border-transparent bg-muted/50"
-                  )}
-                >
-                  <span 
-                    className="text-lg" 
-                    style={{ 
-                      fontFamily: f === 'Plus Jakarta Sans' ? 'var(--font-jakarta)' : 
-                                  f === 'Instrument Serif' ? 'var(--font-instrument)' : 
-                                  `var(--font-${f.toLowerCase()})` 
-                    }}
-                  >
-                    {f}
-                  </span>
-                  {typography === f && <Check className="w-5 h-5 text-primary" />}
                 </button>
               ))}
             </div>

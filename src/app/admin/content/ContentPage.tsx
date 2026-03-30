@@ -332,122 +332,203 @@ export default function ContentPage({ initialData }: { initialData: SiteData }) 
           </div>
         </TabsContent>
 
-        <TabsContent value="projects" className="mt-0 space-y-6 outline-none">
-          <div className="flex justify-end">
-            <Button onClick={addProject} className="gap-2 rounded-2xl h-12 px-6 font-bold shadow-md">
-              <Plus className="w-5 h-5" /> Nuevo Proyecto
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 gap-8">
-            {data.projects.map((project, index) => (
-              <Card key={project.id} className="border-none shadow-xl shadow-black/5 bg-background/50 backdrop-blur-sm rounded-3xl overflow-hidden transition-all hover:shadow-primary/5">
-                <div className="grid grid-cols-1 lg:grid-cols-5">
-                  <div className="lg:col-span-2 p-6 border-r border-border/10">
-                    <ImageUploader 
-                      label="Imagen del Proyecto" 
-                      value={project.image} 
-                      onChange={(url) => {
-                        setData(prev => ({
-                          ...prev,
-                          projects: prev.projects.map((p, i) => 
-                            i === index ? { ...p, image: url } : p
-                          )
-                        }));
-                      }}
-                    />
-                  </div>
-                  <div className="lg:col-span-3 p-6 flex flex-col justify-between">
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-black uppercase bg-primary/10 text-primary px-3 py-1 rounded-full">Proyecto #{index + 1}</span>
-                        <Button variant="ghost" size="icon" className="text-destructive hover:bg-destructive/10 rounded-xl" onClick={() => removeProject(project.id)}>
-                          <Trash2 className="w-5 h-5" />
-                        </Button>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TabsContent value="projects" className="mt-0 space-y-6 outline-none">
+            <div className="flex justify-end">
+              <Button onClick={addProject} className="gap-2 rounded-2xl h-12 px-6 font-bold shadow-md">
+                <Plus className="w-5 h-5" /> Nuevo Proyecto
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 gap-8">
+              {data.projects.map((project, index) => (
+                <Card key={project.id} className="border-none shadow-xl shadow-black/5 bg-background/50 backdrop-blur-sm rounded-3xl overflow-hidden transition-all hover:shadow-primary/5">
+                  <div className="grid grid-cols-1 lg:grid-cols-5">
+                    <div className="lg:col-span-2 p-6 border-r border-border/10">
+                      <ImageUploader 
+                        label="Imagen del Proyecto" 
+                        value={project.image} 
+                        onChange={(url) => {
+                          setData(prev => ({
+                            ...prev,
+                            projects: prev.projects.map((p, i) => 
+                              i === index ? { ...p, image: url } : p
+                            )
+                          }));
+                        }}
+                      />
+                    </div>
+                    <div className="lg:col-span-3 p-6 flex flex-col justify-between">
+                      <div className="space-y-6">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black uppercase bg-primary/10 text-primary px-3 py-1 rounded-full">Proyecto #{index + 1}</span>
+                          <Button variant="ghost" size="icon" className="text-destructive hover:bg-destructive/10 rounded-xl" onClick={() => removeProject(project.id)}>
+                            <Trash2 className="w-5 h-5" />
+                          </Button>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Título</label>
+                            <Input 
+                              placeholder="Nombre del proyecto" 
+                              value={project.title} 
+                              onChange={(e) => {
+                                setData(prev => ({
+                                  ...prev,
+                                  projects: prev.projects.map((p, i) => 
+                                    i === index ? { ...p, title: e.target.value } : p
+                                  )
+                                }));
+                              }}
+                              className="rounded-xl h-12 bg-muted/30 border-none font-black"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Categoría</label>
+                            <Input 
+                              placeholder="Ej. Aplicación Web" 
+                              value={project.category} 
+                              onChange={(e) => {
+                                setData(prev => ({
+                                  ...prev,
+                                  projects: prev.projects.map((p, i) => 
+                                    i === index ? { ...p, category: e.target.value } : p
+                                  )
+                                }));
+                              }}
+                              className="rounded-xl h-12 bg-muted/30 border-none"
+                            />
+                          </div>
+                        </div>
                         <div className="space-y-1">
-                          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Título</label>
-                          <Input 
-                            placeholder="Nombre del proyecto" 
-                            value={project.title} 
+                          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Resumen del caso</label>
+                          <Textarea 
+                            placeholder="Cuéntanos un poco sobre el reto y la solución..." 
+                            value={project.description} 
                             onChange={(e) => {
                               setData(prev => ({
                                 ...prev,
                                 projects: prev.projects.map((p, i) => 
-                                  i === index ? { ...p, title: e.target.value } : p
+                                  i === index ? { ...p, description: e.target.value } : p
                                 )
                               }));
                             }}
-                            className="rounded-xl h-12 bg-muted/30 border-none font-black"
+                            className="rounded-xl min-h-[100px] bg-muted/30 border-none resize-none leading-relaxed"
                           />
                         </div>
-                        <div className="space-y-1">
-                          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Categoría</label>
-                          <Input 
-                            placeholder="Ej. Aplicación Web" 
-                            value={project.category} 
-                            onChange={(e) => {
-                              setData(prev => ({
-                                ...prev,
-                                projects: prev.projects.map((p, i) => 
-                                  i === index ? { ...p, category: e.target.value } : p
-                                )
-                              }));
-                            }}
-                            className="rounded-xl h-12 bg-muted/30 border-none"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-1">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Resumen del caso</label>
-                        <Textarea 
-                          placeholder="Cuéntanos un poco sobre el reto y la solución..." 
-                          value={project.description} 
-                          onChange={(e) => {
-                            setData(prev => ({
-                              ...prev,
-                              projects: prev.projects.map((p, i) => 
-                                i === index ? { ...p, description: e.target.value } : p
-                              )
-                            }));
-                          }}
-                          className="rounded-xl min-h-[100px] bg-muted/30 border-none resize-none leading-relaxed"
-                        />
                       </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
 
-        <TabsContent value="sections" className="mt-0 outline-none">
-          <Card className="border-none shadow-xl shadow-black/5 bg-background/50 backdrop-blur-sm rounded-3xl overflow-hidden">
-            <CardHeader className="p-8 pb-4">
-              <CardTitle className="text-2xl font-black">Visibilidad y Estructura</CardTitle>
-              <CardDescription>Controla qué partes de tu sitio están visibles al mundo.</CardDescription>
-            </CardHeader>
-            <CardContent className="p-8 pt-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Object.entries(data.sections).map(([key, value]) => (
-                  <div 
-                    key={key} 
-                    onClick={async () => {
-                      const newData = {
-                        ...data,
-                        sections: { ...data.sections, [key]: !value }
-                      };
-                      setData(newData);
-                      await updateSiteAction(newData);
-                    }}
-                    className={cn(
-                      "group relative flex items-center justify-between p-6 rounded-2xl border-2 cursor-pointer transition-all active:scale-95",
-                      value 
-                        ? "bg-primary/5 border-primary/20 shadow-sm" 
-                        : "bg-muted/10 border-transparent hover:border-muted-foreground/20 opacity-60 hover:opacity-100"
-                    )}
-                  >
+          <TabsContent value="testimonials" className="mt-0 space-y-6 outline-none">
+            <div className="flex justify-end">
+              <Button 
+                onClick={() => {
+                  const newT: Testimonial = { id: Math.random().toString(36).substr(2, 9), name: 'Nuevo Cliente', role: 'Cargo', content: 'Excelente servicio...' };
+                  setData(prev => ({ ...prev, testimonials: [...(prev.testimonials || []), newT] }));
+                }} 
+                className="gap-2 rounded-2xl h-12 px-6 font-bold shadow-md"
+              >
+                <Plus className="w-5 h-5" /> Agregar Testimonio
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {(data.testimonials || []).map((t, index) => (
+                <Card key={t.id} className="border-none shadow-xl shadow-black/5 bg-background/50 backdrop-blur-sm rounded-3xl group">
+                  <CardHeader className="flex flex-row items-center justify-between p-6">
+                    <ImageUploader 
+                      label="Foto / Avatar" 
+                      value={t.avatar || ''} 
+                      onChange={(url) => {
+                        setData(prev => ({
+                          ...prev,
+                          testimonials: prev.testimonials.map((item, i) => 
+                            i === index ? { ...item, avatar: url } : item
+                          )
+                        }));
+                      }}
+                      className="w-20"
+                    />
+                    <Button variant="ghost" size="icon" className="text-destructive hover:bg-destructive/10 rounded-xl" onClick={() => {
+                        setData(prev => ({ ...prev, testimonials: prev.testimonials.filter(item => item.id !== t.id) }));
+                    }}>
+                      <Trash2 className="w-5 h-5" />
+                    </Button>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0 space-y-4">
+                    <Input 
+                      placeholder="Nombre del cliente" 
+                      value={t.name} 
+                      onChange={(e) => {
+                        setData(prev => ({
+                          ...prev,
+                          testimonials: prev.testimonials.map((item, i) => 
+                            i === index ? { ...item, name: e.target.value } : item
+                          )
+                        }));
+                      }}
+                      className="rounded-xl h-12 bg-muted/30 border-none font-bold"
+                    />
+                    <Input 
+                      placeholder="Cargo o Empresa" 
+                      value={t.role} 
+                      onChange={(e) => {
+                        setData(prev => ({
+                          ...prev,
+                          testimonials: prev.testimonials.map((item, i) => 
+                            i === index ? { ...item, role: e.target.value } : item
+                          )
+                        }));
+                      }}
+                      className="rounded-xl h-12 bg-muted/30 border-none text-sm"
+                    />
+                    <Textarea 
+                      placeholder="Contenido del testimonio..." 
+                      value={t.content} 
+                      onChange={(e) => {
+                        setData(prev => ({
+                          ...prev,
+                          testimonials: prev.testimonials.map((item, i) => 
+                            i === index ? { ...item, content: e.target.value } : item
+                          )
+                        }));
+                      }}
+                      className="rounded-xl min-h-[100px] bg-muted/30 border-none resize-none leading-relaxed"
+                    />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="sections" className="mt-0 outline-none">
+            <Card className="border-none shadow-xl shadow-black/5 bg-background/50 backdrop-blur-sm rounded-3xl overflow-hidden">
+              <CardHeader className="p-8 pb-4">
+                <CardTitle className="text-2xl font-black">Visibilidad y Estructura</CardTitle>
+                <CardDescription>Controla qué partes de tu sitio están visibles al mundo.</CardDescription>
+              </CardHeader>
+              <CardContent className="p-8 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {Object.entries(data.sections || {}).map(([key, value]) => (
+                    <div 
+                      key={key} 
+                      onClick={async () => {
+                        const newData = {
+                          ...data,
+                          sections: { ...data.sections, [key]: !value }
+                        };
+                        setData(newData);
+                        await updateSiteAction(newData);
+                      }}
+                      className={cn(
+                        "group relative flex items-center justify-between p-6 rounded-2xl border-2 cursor-pointer transition-all active:scale-95",
+                        value 
+                          ? "bg-primary/5 border-primary/20 shadow-sm" 
+                          : "bg-muted/10 border-transparent hover:border-muted-foreground/20 opacity-60 hover:opacity-100"
+                      )}
+                    >
                     <div className="flex flex-col">
                       <label className="font-black capitalize text-lg tracking-tighter leading-none mb-1">{key}</label>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">

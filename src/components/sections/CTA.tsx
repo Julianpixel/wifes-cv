@@ -36,10 +36,10 @@ function MagnetButton({ children, href }: { children: React.ReactNode; href: str
       <Link href={href}>
         <motion.button
           whileTap={{ scale: 0.96 }}
-          className="relative group h-16 px-10 sm:px-14 text-lg sm:text-xl rounded-2xl font-black text-foreground overflow-hidden"
+          className="relative group h-16 px-10 sm:px-14 text-lg sm:text-xl rounded-2xl font-black text-primary-foreground overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, hsl(171 90% 44%), hsl(38 95% 55%))',
-            boxShadow: '0 0 40px hsl(171 90% 44% / 0.5), 0 20px 50px hsl(0 0% 0% / 0.3)',
+            background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))',
+            boxShadow: '0 0 40px hsl(var(--primary) / 0.5), 0 20px 50px hsl(0 0% 0% / 0.3)',
           }}
         >
           {/* Shimmer sweep */}
@@ -48,7 +48,7 @@ function MagnetButton({ children, href }: { children: React.ReactNode; href: str
             transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5 }}
             className="absolute inset-0 w-1/2 pointer-events-none"
             style={{
-              background: 'linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.25), transparent)',
+              background: 'linear-gradient(90deg, transparent, hsl(var(--primary-foreground) / 0.25), transparent)',
               transform: 'skewX(-20deg)',
             }}
           />
@@ -78,8 +78,9 @@ export function CTA() {
           transition={{ duration: 0.6 }}
           className="relative rounded-[2.5rem] overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, hsl(175 80% 18%) 0%, hsl(210 40% 8%) 50%, hsl(38 60% 10%) 100%)',
-            boxShadow: '0 40px 120px hsl(171 90% 44% / 0.15)',
+            background: 'linear-gradient(135deg, hsl(var(--primary) / 0.2) 0%, hsl(var(--background)) 50%, hsl(var(--secondary) / 0.1) 100%)',
+            boxShadow: '0 40px 120px hsl(var(--primary) / 0.15)',
+            border: '1px solid hsl(var(--primary) / 0.1)',
           }}
         >
           {/* Background orbs */}
@@ -87,13 +88,13 @@ export function CTA() {
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 8, repeat: Infinity }}
             className="absolute top-0 left-0 w-80 h-80 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
-            style={{ background: 'hsl(171 90% 44% / 0.3)' }}
+            style={{ background: 'hsl(var(--primary) / 0.3)' }}
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
             transition={{ duration: 10, repeat: Infinity, delay: 3 }}
             className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
-            style={{ background: 'hsl(38 95% 55% / 0.2)' }}
+            style={{ background: 'hsl(var(--secondary) / 0.2)' }}
           />
 
           {/* Floating emojis */}
@@ -118,7 +119,7 @@ export function CTA() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-bold uppercase tracking-widest mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -132,14 +133,14 @@ export function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tighter"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-foreground mb-4 leading-tight tracking-tighter"
             >
               Tu próximo proyecto turístico
               <br className="hidden sm:block" />
               <span
                 className="text-transparent bg-clip-text"
                 style={{
-                  background: 'linear-gradient(90deg, hsl(171 90% 60%), hsl(38 95% 65%))',
+                  background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)))',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
@@ -153,7 +154,7 @@ export function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg sm:text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
             >
               Cada semana trabajo con un número limitado de clientes para garantizar 
               resultados de calidad. Reserva tu consulta gratuita hoy — sin compromiso.
