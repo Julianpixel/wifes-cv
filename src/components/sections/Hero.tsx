@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
@@ -41,7 +42,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 }
 
 export function Hero({ name, title, description, image }: HeroProps) {
-  const firstName = name.split(' ')[0];
+  const firstName = (name || '').split(' ')[0] || 'Leandri';
   const finalImage = image && image !== '' ? image : 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop';
 
   return (
