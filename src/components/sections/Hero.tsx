@@ -1,7 +1,6 @@
-'use client';
-
 import * as React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, GraduationCap, Plane } from 'lucide-react';
 import { staggerContainer, fadeInUp, scaleIn } from '@/lib/animations';
@@ -43,6 +42,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 
 export function Hero({ name, title, description, image }: HeroProps) {
   const firstName = name.split(' ')[0];
+  const finalImage = image && image !== '' ? image : 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop';
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -73,24 +73,25 @@ export function Hero({ name, title, description, image }: HeroProps) {
       </div>
 
       {/* ── MOBILE: full-bg photo (editorial style) — hidden on lg ── */}
-      {image && (
-        <div className="absolute inset-0 lg:hidden overflow-hidden">
-          <img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover object-top"
-          />
-          {/* Refined overlay for mobile: subtler in light mode, deeper in dark mode */}
-          <div
-            className="absolute inset-0 z-[1]"
-            style={{
-              background: 'linear-gradient(to right, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.6) 50%, transparent 100%)',
-            }}
-          />
-          {/* Subtle vignette/bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-[1]" />
-        </div>
-      )}
+      <div className="absolute inset-0 lg:hidden overflow-hidden">
+        <Image
+          src={finalImage}
+          alt={name}
+          fill
+          priority
+          className="object-cover object-top"
+          unoptimized={finalImage.startsWith('/')}
+        />
+        {/* Refined overlay for mobile: subtler in light mode, deeper in dark mode */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background: 'linear-gradient(to right, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.4) 50%, transparent 100%)',
+          }}
+        />
+        {/* Subtle vignette/bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-[1]" />
+      </div>
 
       {/* ── Layout ── */}
       <div className="relative w-full pt-20 sm:pt-24 pb-16 flex-1">
@@ -212,12 +213,15 @@ export function Hero({ name, title, description, image }: HeroProps) {
                   className="relative rounded-[2.5rem] overflow-hidden border border-primary/20 shadow-2xl z-10 aspect-[3/4]"
                   style={{ boxShadow: 'var(--theme-shadow)' }}
                 >
-                  {image && (
-                    <>
-                      <img src={image} alt={name} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
-                    </>
-                  )}
+                  <Image 
+                    src={finalImage} 
+                    alt={name} 
+                    fill
+                    priority
+                    className="object-cover object-top hover:scale-105 transition-transform duration-700" 
+                    unoptimized={finalImage.startsWith('/')}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
                 </div>
 
                 {/* Floating cards — only desktop */}

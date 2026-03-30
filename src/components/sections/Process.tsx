@@ -36,6 +36,8 @@ export function Process() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative"
         >
+          {/* Subtle background glow for the section */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial-gradient from-primary/5 via-transparent to-transparent -z-10 blur-3xl" />
 
           {steps.map((step, index) => {
             const Icon = step.icon;
@@ -53,15 +55,15 @@ export function Process() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  className="w-24 h-24 rounded-full bg-background border-2 border-border group-hover:border-primary/50 flex items-center justify-center mb-6 transition-all duration-400 shadow-xl group-hover:shadow-primary/10"
-                  style={{ }}
+                  className="w-24 h-24 rounded-full bg-background border-2 border-border group-hover:border-primary/50 flex items-center justify-center mb-6 transition-all duration-400 shadow-xl group-hover:shadow-primary/20 relative"
                 >
-                  <Icon className="w-9 h-9 text-primary/50 group-hover:text-primary transition-colors duration-300" />
+                  <div className="absolute inset-2 rounded-full bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Icon className="w-10 h-10 text-primary/40 group-hover:text-primary transition-colors duration-300 relative z-10" />
                 </motion.div>
 
-                <span className="text-[10px] font-black text-primary/40 tracking-[0.3em] uppercase mb-2">Paso {step.number}</span>
-                <h3 className="text-base font-bold mb-3 tracking-tight">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                <span className="text-xs font-black text-secondary/70 tracking-[0.3em] uppercase mb-2">Paso {step.number}</span>
+                <h3 className="text-xl font-black mb-3 tracking-tighter group-hover:text-primary transition-colors">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">{step.description}</p>
               </motion.div>
             );
           })}
